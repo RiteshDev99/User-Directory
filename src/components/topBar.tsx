@@ -92,6 +92,8 @@ const styles = StyleSheet.create({
         flex: 1,
         height: '100%',
         fontSize: 16,
+        color: '#2F363F',
+
     },
 });
 export default TopBar;
