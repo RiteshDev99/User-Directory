@@ -1,5 +1,4 @@
-import React, { } from 'react';
-
+import React from 'react';
 import { View, StyleSheet, Image, Text, TextInput, TouchableOpacity } from 'react-native';
 
 const TopBar = () => {
