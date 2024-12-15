@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
-import Card from '../components/card';
 import Loader from '../components/loader';
+import UserListCard from '../components/userListCard';
 
-export interface UserDataProps {
+export interface DataFetchingProps {
     id: number;
     name: string;
     username: string;
@@ -28,8 +28,8 @@ export interface UserDataProps {
 }
 
 
-const UserData = () => {
-    const [users, setUsers] = useState<UserDataProps[]>([]);
+const DataFetching = () => {
+    const [users, setUsers] = useState<DataFetchingProps[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
 
@@ -71,7 +71,7 @@ const UserData = () => {
         <FlatList
             data={users}
             renderItem={({ item }) => (
-                <Card data={item} />
+                <UserListCard data={item} />
             )}
             keyExtractor={(item) => item.email}
         />
@@ -93,4 +93,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default UserData;
+export default DataFetching;

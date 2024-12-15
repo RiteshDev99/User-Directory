@@ -1,11 +1,11 @@
 import React from 'react';
-import { View,  StyleSheet } from 'react-native';
-import UserData from '../api/userData';
+import { View, StyleSheet } from 'react-native';
+import DataFetching from '../api/dataFetching';
 
-const Home = () => {
+const UserList = () => {
     return (
         <View style={styles.container}>
-            <UserData />
+            <DataFetching />
         </View>
     );
 };
@@ -15,4 +15,4 @@ const styles = StyleSheet.create({
         width: 'auto',
     },
 });
-export default Home;
+export default UserList;

@@ -1,17 +1,17 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
-import { UserDataProps } from '../api/userData';
+
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../App';
+import { DataFetchingProps } from '../api/dataFetching';
 
-type CardNavigationProp = StackNavigationProp<RootStackParamList, 'Home'>;
+type CardNavigationProp = StackNavigationProp<RootStackParamList, 'UserListCard'>;
 
-export interface CardProps {
-    data: UserDataProps;
+export interface UserListCardProps {
+    data: DataFetchingProps;
 }
-
-const Card: React.FC<CardProps> = ({ data }) => {
+const UserListCard: React.FC<UserListCardProps> = ({ data }) => {
     const navigation = useNavigation<CardNavigationProp>();
 
     const handlePress = () => {
@@ -22,7 +22,7 @@ const Card: React.FC<CardProps> = ({ data }) => {
         <Pressable onPress={handlePress}>
             <View style={styles.cardContainer}>
                 <Image
-                    source={require('../assets/svg/userProfile.png')}
+                    source={require('../assets/svg/profileImage.webp')}
                     style={styles.userImage}
                 />
 
@@ -50,8 +50,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     userImage: {
-        height: 40,
-        width: 40,
+        height: 50,
+        width: 50,
         marginRight: 18,
     },
     userItem: {
@@ -61,13 +61,13 @@ const styles = StyleSheet.create({
     nameText: {
         fontSize: 18,
         fontWeight: '600',
-        color: '#333333',
+        color: '#2F363F',
         marginBottom: 4,
     },
     gmailText: {
         fontSize: 14,
-        color: '#777777',
+        color: '#666',
     },
 });
 
-export default Card;
+export default UserListCard;
