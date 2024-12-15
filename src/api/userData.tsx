@@ -1,13 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
 import Card from '../components/card';
 import Loader from '../components/loader';
 
 export interface UserDataProps {
     id: number;
     name: string;
+    username: string;
     email: string;
+    phone: string;
+    website: string;
+    company: {
+        name: string;
+        catchPhrase: string;
+        bs: string;
+    };
+    address: {
+        street: string;
+        suite: string;
+        city: string;
+        zipcode: string;
+        geo: {
+            lat: string;
+            lng: string;
+        };
+    };
 }
+
 
 const UserData = () => {
     const [users, setUsers] = useState<UserDataProps[]>([]);
@@ -49,14 +68,17 @@ const UserData = () => {
     }
 
     return (
-        <ScrollView>
-            <Text style={styles.title}>User’s name & email.</Text>
-            {users.map(user => (
-                <Card key={user.id} name={user.name} email={user.email} id={user.id} />
-            ))}
-        </ScrollView>
+        <FlatList
+            data={users}
+            renderItem={({ item }) => (
+                <Card data={item} />
+            )}
+            keyExtractor={(item) => item.email}
+        />
     );
 };
+
+
 
 const styles = StyleSheet.create({
     container: {
@@ -68,12 +90,6 @@ const styles = StyleSheet.create({
     error: {
         color: 'red',
         fontSize: 18,
-    },
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        marginBottom: 15,
-        textAlign: 'center',
     },
 });
 
