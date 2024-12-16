@@ -1,80 +1,36 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+### Project Setup
+The project is bootstrapped using the @react-native-community/cli, which provides a command-line interface to streamline the creation and management of React Native projects.
 
-# Getting Started
+### Steps for Getting Started
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+ ## Start Metro Bundler:
+You first start Metro, the bundler that compiles your JavaScript code for React Native. This is done by running npm start or yarn start from the root directory.
 
-## Step 1: Start the Metro Server
+## Running the App:
+After Metro is running, you open a new terminal and use the npm run android or yarn android command to launch the app on an Android emulator or physical device.
+Similarly, to run the app on iOS, the npm run ios or yarn ios command is used.
+Challenges Faced
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Navigation Issues: You encountered difficulties with smooth navigation between screens, especially in passing data (props) correctly between the screens. After troubleshooting, you realized the data passing logic needed to be reworked for the navigation to function as expected. This is a common challenge in React Native development and can be addressed by ensuring that data is passed and accessed in a structured manner across screens.
+User Directory App UI Overview
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## User List Screen:
+This is the main screen displaying a list of users, showing their name and email. Each user is clickable, and tapping on a user navigates to a more detailed view of that user. This screen also includes a search bar that allows users to filter the list by name, providing an efficient way to find a specific user.
 
-```bash
-# using npm
-npm start
+Filtering Functionality:
+The app includes a filtering feature where users can search the list of users by typing in a name. The displayed list dynamically updates to show only those users whose names match the search query. This feature makes it easier to navigate through a large list of users.
 
-# OR using Yarn
-yarn start
-```
+Screenshots:
+The attached screenshots show the User List Screen and User Details Screen, giving a glimpse into the user interface:
 
-## Step 2: Start your Application
+User List Screen: Displays a list of users with a search bar for filtering results.
+User Details Screen: Shows in-depth information for the selected user.
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+Challenges Faced
+One of the key challenges faced during development was ensuring smooth navigation between screens. Initially, there were issues with data passing between screens, which caused navigation problems. However, after troubleshooting, it was found that adjusting the way data was passed and accessed resolved these issues, leading to smoother navigation between the user list and user details screens.
+<img width="414" alt="Screenshot 2024-12-16 at 5 21 58 PM" src="https://github.com/user-attachments/assets/5bb19162-bcf2-48d0-b174-0291ec7ec7cf" />
 
-### For Android
+<img width="414" alt="Screenshot 2024-12-16 at 5 22 06 PM" src="https://github.com/user-attachments/assets/b3cba4be-4dec-4d70-851d-265da147f4b7" />
 
-```bash
-# using npm
-npm run android
+<img width="414" alt="Screenshot 2024-12-16 at 5 22 16 PM" src="https://github.com/user-attachments/assets/19c54cfb-9d52-4c7d-aa91-dcb96e49bef0" />
 
-# OR using Yarn
-yarn android
-```
-
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
-# User-Directory
