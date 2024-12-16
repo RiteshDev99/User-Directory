@@ -10,24 +10,8 @@ const UserDetailsCard: React.FC<UserListCardProps> = ({ data }) => {
                     source={require('../assets/svg/profileImage.webp')}
                     style={styles.userImage}
                 />
-                <Text style={styles.nameText}>{data.username}</Text>
+                <Text style={styles.nameText}>{data.name}</Text>
                 <Text style={styles.emailText}>{data.email}</Text>
-            </View>
-            <View style={styles.detailsSection}>
-                <View style={styles.detailRow}>
-                    <Text style={styles.detailLabel}>Name:</Text>
-                    <Text style={styles.detailText}>{data.name}</Text>
-                </View>
-
-                <View style={styles.detailRow}>
-                    <Text style={styles.detailLabel}>Phone:</Text>
-                    <Text style={styles.detailText}>{data.phone}</Text>
-                </View>
-
-                <View style={styles.detailRow}>
-                    <Text style={styles.detailLabel}>Website:</Text>
-                    <Text style={styles.detailText}>{data.website}</Text>
-                </View>
             </View>
             <View style={styles.detailsSection}>
                 <Text style={styles.sectionTitle}>Address</Text>

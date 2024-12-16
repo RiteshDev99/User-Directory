@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity, TextInput } from 'react-native';
 import Loader from '../components/loader';
 import UserListCard from '../components/userListCard';
 
@@ -27,11 +27,20 @@ export interface DataFetchingProps {
     };
 }
 
-
 const DataFetching = () => {
     const [users, setUsers] = useState<DataFetchingProps[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
+    const [filterData, setFilterData] = useState<DataFetchingProps[]>([]); // Explicitly define the type
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const handleSearch = (query: string) => {
+        setSearchQuery(query);
+        const filtered = users.filter(user =>
+            user.name.toLocaleLowerCase().includes(query.toLocaleLowerCase())
+        );
+        setFilterData(filtered);
+    };
 
     const url = 'https://jsonplaceholder.typicode.com/users';
 
@@ -46,6 +55,7 @@ const DataFetching = () => {
             })
             .then(data => {
                 setUsers(data);
+                setFilterData(data);
             })
             .catch(fetchError => {
                 setError(fetchError.message);
@@ -68,17 +78,30 @@ const DataFetching = () => {
     }
 
     return (
-        <FlatList
-            data={users}
-            renderItem={({ item }) => (
-                <UserListCard data={item} />
-            )}
-            keyExtractor={(item) => item.email}
-        />
+        <>
+            <TouchableOpacity style={styles.searchBarContainer}>
+                <Image
+                    source={require('../assets/svg/searchImage.png')}
+                    style={styles.searchImage}
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder="Search here..."
+                    placeholderTextColor="#888"
+                    value={searchQuery}
+                    onChangeText={handleSearch}
+                />
+            </TouchableOpacity>
+            <FlatList
+                data={filterData}
+                renderItem={({ item }) => (
+                    <UserListCard data={item} />
+                )}
+                keyExtractor={(item) => item.email}
+            />
+        </>
     );
 };
-
-
 
 const styles = StyleSheet.create({
     container: {
@@ -90,6 +113,28 @@ const styles = StyleSheet.create({
     error: {
         color: 'red',
         fontSize: 18,
+    },
+    searchBarContainer: {
+        height: 55,
+        width: '90%',
+        marginTop: 10,
+        alignSelf: 'center',
+        backgroundColor: '#ffffff',
+        borderRadius: 12,
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingHorizontal: 10,
+    },
+    searchImage: {
+        height: 35,
+        width: 35,
+        marginRight: 8,
+    },
+    input: {
+        flex: 1,
+        height: '100%',
+        fontSize: 16,
+        color: '#2F363F',
     },
 });
 

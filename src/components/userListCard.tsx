@@ -27,7 +27,7 @@ const UserListCard: React.FC<UserListCardProps> = ({ data }) => {
                 />
 
                 <View style={styles.userItem}>
-                    <Text style={styles.nameText}>{data.username}</Text>
+                    <Text style={styles.nameText}>{data.name}</Text>
                     <Text style={styles.gmailText}>{data.email}</Text>
                 </View>
             </View>

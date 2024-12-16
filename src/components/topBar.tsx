@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, StyleSheet, Image, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Image, Text } from 'react-native';
+
 
 const TopBar = () => {
 
@@ -19,25 +20,13 @@ const TopBar = () => {
                     style={styles.notificationImage}
                 />
             </View>
-            <TouchableOpacity style={styles.searchBarContainer}
-            >
-                <Image
-                    source={require('../assets/svg/searchImage.png')}
-                    style={styles.searchImage}
-                />
-                <TextInput
-                    style={styles.input}
-                    placeholder="Search here..."
-                    placeholderTextColor="#888"
-                />
-            </TouchableOpacity>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        height: 140,
+        height: 'auto',
         width: '100%',
     },
     containerBackground: {
@@ -92,7 +81,7 @@ const styles = StyleSheet.create({
         height: '100%',
         fontSize: 16,
         color: '#2F363F',
-
     },
 });
+
 export default TopBar;
