@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     container: {
         height: 'auto',
         width: 'auto',
+        paddingBottom: 130,
     },
 });
 export default UserList;
