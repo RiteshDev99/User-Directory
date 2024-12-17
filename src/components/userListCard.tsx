@@ -10,22 +10,23 @@ type CardNavigationProp = StackNavigationProp<RootStackParamList, 'UserListCard'
 
 export interface UserListCardProps {
     data: DataFetchingProps;
+    imgUrl: string;
 }
-const UserListCard: React.FC<UserListCardProps> = ({ data }) => {
+
+const UserListCard: React.FC<UserListCardProps> = ({ data, imgUrl }) => {
     const navigation = useNavigation<CardNavigationProp>();
 
     const handlePress = () => {
-        navigation.navigate('User_Details_Screen', { userData: data });
+        navigation.navigate('UserDetails', { userData: data, imgUrl: imgUrl });
     };
 
     return (
         <Pressable onPress={handlePress}>
             <View style={styles.cardContainer}>
                 <Image
-                    source={require('../assets/svg/profileImage.webp')}
+                    source={{ uri: imgUrl }}
                     style={styles.userImage}
                 />
-
                 <View style={styles.userItem}>
                     <Text style={styles.nameText}>{data.name}</Text>
                     <Text style={styles.gmailText}>{data.email}</Text>
@@ -53,6 +54,7 @@ const styles = StyleSheet.create({
         height: 50,
         width: 50,
         marginRight: 18,
+        borderRadius: '100%',
     },
     userItem: {
         flex: 1,

@@ -4,7 +4,7 @@ import { RootStackParamList } from '../App';
 import { RouteProp } from '@react-navigation/native';
 import UserDetailsCard from '../components/userDetailsCard';
 
-type UserDetailsScreenRouteProp = RouteProp<RootStackParamList, 'User_Details_Screen'>;
+type UserDetailsScreenRouteProp = RouteProp<RootStackParamList, 'UserDetails'>;
 
 type UserDetailsProps = {
     route?: UserDetailsScreenRouteProp;
@@ -16,7 +16,7 @@ const UserDetails: React.FC<UserDetailsProps> = ({ route }) => {
     return (
         <View style={styles.container}>
             {userData ? (
-                <UserDetailsCard data={userData} />
+                <UserDetailsCard data={userData} imgUrl={route?.params?.imgUrl} />
             ) : (
                 <View>
                     {/* Fallback UI when no userData */}

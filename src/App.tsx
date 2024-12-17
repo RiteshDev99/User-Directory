@@ -11,7 +11,7 @@ const Stack = createNativeStackNavigator();
 
 export type RootStackParamList = {
   UserListCard: undefined;
-  User_Details_Screen: { userData: DataFetchingProps };
+  UserDetails: { userData: DataFetchingProps, imgUrl: string };
 };
 
 
@@ -30,7 +30,7 @@ const App: React.FC = () => {
               }}
             />
             <Stack.Screen
-              name="User_Details_Screen"
+              name="UserDetails"
               component={UserDetails}
               options={{
                 headerShown: true,

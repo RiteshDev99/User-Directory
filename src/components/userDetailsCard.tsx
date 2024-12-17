@@ -2,12 +2,14 @@ import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { UserListCardProps } from './userListCard';
 
-const UserDetailsCard: React.FC<UserListCardProps> = ({ data }) => {
+const UserDetailsCard: React.FC<UserListCardProps> = ({ data, imgUrl }) => {
+    console.log(imgUrl);
+
     return (
         <View style={styles.cardContainer}>
             <View style={styles.userProfile}>
                 <Image
-                    source={require('../assets/svg/profileImage.webp')}
+                    source={{ uri: imgUrl }}
                     style={styles.userImage}
                 />
                 <Text style={styles.nameText}>{data.name}</Text>

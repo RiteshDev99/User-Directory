@@ -95,7 +95,7 @@ const DataFetching = () => {
             <FlatList
                 data={filterData}
                 renderItem={({ item }) => (
-                    <UserListCard data={item} />
+                    <UserListCard data={item} imgUrl={`https://picsum.photos/id/${item.id + 11}/200`} />
                 )}
                 keyExtractor={(item) => item.email}
             />
