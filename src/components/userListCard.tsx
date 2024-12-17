@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
         height: 50,
         width: 50,
         marginRight: 18,
-        borderRadius: '100%',
+        borderRadius: 45,
     },
     userItem: {
         flex: 1,

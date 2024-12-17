@@ -3,8 +3,6 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 import { UserListCardProps } from './userListCard';
 
 const UserDetailsCard: React.FC<UserListCardProps> = ({ data, imgUrl }) => {
-    console.log(imgUrl);
-
     return (
         <View style={styles.cardContainer}>
             <View style={styles.userProfile}>
